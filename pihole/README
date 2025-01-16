@@ -1,0 +1,16 @@
+Check out https://docs.pi-hole.net/main/basic-install/
+
+Installer was downloaded with the following:
+wget -O pihole-basic-install.sh https://install.pi-hole.net
+
+Overall Setup:
+- Install firewall with ufw or firewalld script
+- Run setup script for pihole
+  -- Initially used Quad9, no logging, lvl 1 privacy
+- Set up DNS-over-HTTPS
+  -- Use the script to install cloudflared, which works with Quad9 as well
+- Set pihole to use cloudflared as dns resolver
+  -- 127.0.0.1#5053
+- Set router to use pihole as dns, secondary being quad9 (9.9.9.11)
+
+

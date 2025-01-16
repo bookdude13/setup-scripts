@@ -1,0 +1,10 @@
+[user]
+	name = bookdude13
+	email = rfredlund13@gmail.com
+[alias]
+	co = checkout
+	st = status
+	br = branch
+	ci = commit -m
+    deg = "log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(white)- %an%C(reset)' --all"
+
