@@ -1,14 +1,20 @@
 #!/bin/bash
 set -euxo pipefail
 
+DISTRO_SHORT=$(lsb_release -si | tr '[:upper:]' '[:lower:]')
+
 # Assume run as root!
 # Note - if running in wsl, use the windows docker instance instead
 
 # Install dependencies
 apt -y install apt-transport-https ca-certificates curl software-properties-common
 
+# Add key
+
+curl -fsSL https://download.docker.com/linux/$DISTRO_SHORT/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
+
 # Add official Docker stable repository:
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/$DISTRO_SHORT bookworm stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # Install docker-ce pakage:
 apt update
