@@ -1,0 +1,4 @@
+# Ignore created files when setting up the registry
+
+auth/
+data/

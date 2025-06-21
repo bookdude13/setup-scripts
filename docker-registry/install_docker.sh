@@ -1,6 +1,8 @@
 #!/bin/bash
+set -euxo pipefail
 
 # Assume run as root!
+# Note - if running in wsl, use the windows docker instance instead
 
 # Install dependencies
 apt -y install apt-transport-https ca-certificates curl software-properties-common
