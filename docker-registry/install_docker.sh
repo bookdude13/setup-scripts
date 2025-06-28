@@ -18,7 +18,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 
 # Install docker-ce pakage:
 apt update
-apt -y install docker-ce docker-ce-cli containerd.io docker-compose
+apt -y install docker-ce docker-ce-cli containerd.io
 
 # If you would like to use Docker as a non-root user, you should now consider adding your user to the “docker” group:
 # sudo usermod -aG docker $USER
@@ -26,4 +26,9 @@ apt -y install docker-ce docker-ce-cli containerd.io docker-compose
 
 docker --version
 
+# Install docker-compose v2
+sudo apt-get remove docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+sudo chmod +x /usr/bin/docker-compose
+docker-compose --version
 
